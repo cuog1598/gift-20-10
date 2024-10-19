@@ -643,7 +643,7 @@
     </style>
 </HEAD>
 
-<BODY>
+<body>
     <div class="sp-container">
         <div class="sp-content">
             <div class="sp-globe"></div>
@@ -669,16 +669,14 @@
                     Không chúc em lộng lẫy
                 </p>
                 <p>
-                    Chỉ chúc em... không muộn phiền - Cường ❤️
+                    Chỉ chúc em... không muộn phiền
                 </p>
             </div>
 
         </div>
-        <audio autoplay loop>
-            <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+        <div id="media"></div>
     </div>
+
 
 
     <canvas id="pinkboard">
@@ -686,6 +684,25 @@
         </canvas>
     </canvas>
     <script>
+        var audio = document.createElement('audio');
+        var source = document.createElement('source');
+        var media = document.getElementById('media');
+
+        // Thiết lập thuộc tính autoplay
+        audio.setAttribute('autoplay', 'autoplay');
+        audio.setAttribute('muted', 'muted'); // Thêm muted để tránh vấn đề với tự động phát
+
+        // Thêm source vào audio
+        audio.appendChild(source);
+        source.setAttribute('src', 'https://www.bensound.com/bensound-music/bensound-romantic.mp3');
+        source.setAttribute('type', 'audio/mpeg');
+
+        // Thêm điều khiển cho audio
+        audio.setAttribute('controls', 'controls');
+
+        // Thêm audio vào phần tử media
+        media.appendChild(audio);
+
         /*
          * Settings
          */
@@ -944,11 +961,11 @@
                 render();
             }, 10);
         })(document.getElementById('pinkboard'));
+
+
     </script>
-        <audio autoplay loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-</BODY>
+    <section id="media"></section>
+
+</body>
 
 </HTML>
